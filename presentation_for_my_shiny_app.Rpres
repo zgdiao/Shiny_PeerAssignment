@@ -1,0 +1,70 @@
+Presentation for My Shiny Application
+========================================================
+author: zgdiao
+date: August 30, 2021
+autosize: true
+
+Introduction
+========================================================
+
+The shiny application helps to generate a normal distribution curve on demand.
+
+A user is able to set:
+
+- mean
+- standard deviation
+
+of the normal distribution, to configure the curve's:
+
+- color
+- width
+
+to decide:
+
+- whether to display a standard normal distribution curve
+
+
+The Application
+========================================================
+![](Screenshot.png)
+UI of the Application
+***
+The application has been deployed on the Rstudio's shiny server:
+
+<https://zgdiao.shinyapps.io/shiny_peerassignment/>.
+
+
+The ui.R and server.R files have been uploaded to the github:
+
+<https://github.com/zgdiao/Shiny_PeerAssignment>.
+
+
+Demo of the Application
+========================================================
+If a user configures:
+- mean = 2 and standard deviation = 3
+- color = "dark orange" and width = 2
+- display = TRUE
+
+A similar r script as follows will be executed:
+
+```{r eval=FALSE}
+x <- seq(-10, 10, by = .1)
+y <- dnorm(x, mean = 2, sd = 3)
+plot(x, y, type = "l", col= "darkorange", lwd = 2, xlim = c(-10,10), ylim = c(0, .4), ylab = "Density", xlab = "Values")
+y0 <-  dnorm(x, mean = 0, sd = 1)
+lines(x, y0, lwd=1, col="gray", type = "l", lty = 2, xlim = c(-10,10))
+```
+
+Result
+========================================================
+The following plot will be presented:
+
+```{r, echo=FALSE}
+x <- seq(-10, 10, by = .1)
+y <- dnorm(x, mean = 2, sd = 3)
+plot(x, y, type = "l", col= "darkorange", lwd = 2, xlim = c(-10,10), ylim = c(0, .4), ylab = "Density", xlab = "Values")
+y0 <-  dnorm(x, mean = 0, sd = 1)
+lines(x, y0, lwd=1, col="gray", type = "l", lty = 2, xlim = c(-10,10))
+```
+
